@@ -1,11 +1,11 @@
 from django.urls import path
-from core.views import item_list, checkout, product_page
+from .views import homeView, checkout, itemDetailView
 
 # here we need to specify the name of the app
 app_name = 'core'
 
 urlpatterns = [
-    path('', item_list, name='item_list'),
+    path('', homeView.as_view(), name='home'),
     path('checkout', checkout, name='checkout'),
-    path('product-page', product_page, name='product_page'),
+    path('product/<slug>/', itemDetailView.as_view(), name='product'),
 ]

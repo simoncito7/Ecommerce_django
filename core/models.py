@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.shortcuts import reverse
 
 
 class Item(models.Model):
@@ -18,12 +19,19 @@ class Item(models.Model):
 
     title = models.CharField(max_length=100)
     price = models.FloatField()
+    discount_price = models.FloatField(blank=True, null=True)
     category = models.CharField(
         choices=CATEGORY_CHOICES, max_length=2, default='S')
     label = models.CharField(choices=LABEL_CHOICES, max_length=2, default='P')
+    # A "slug" is a way of generating a valid URL, generally using data already obtained. For instance, a slug uses the title of an article to generate a URL
+    slug = models.SlugField(default=" ")
+    description = models.TextField(default=" ")
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('core:product', kwargs={'slug': self.slug})
 
 
 class OrderItem(models.Model):

@@ -6,15 +6,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Material Design Bootstrap</title>
+  <title>Product description</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
   <!-- Bootstrap core CSS -->
-  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
   <!-- Material Design Bootstrap -->
-  <link href="../static/css/mdb.min.css" rel="stylesheet">
+  <link href="../../static/css/mdb.min.css" rel="stylesheet">
   <!-- Your custom styles (optional) -->
-  <link href="../static/css/style.min.css" rel="stylesheet">
+  <link href="../../static/css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
-        <strong class="blue-text">MDB</strong>
+        <strong class="blue-text">Simon's Ecommerce</strong>
       </a>
 
       <!-- Collapse -->
@@ -40,7 +40,7 @@
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link waves-effect" href="#">Home
+            <a class="nav-link waves-effect" href="{% url 'core:home' %}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -113,7 +113,7 @@
 
             <div class="mb-3">
               <a href="">
-                <span class="badge purple mr-1">Category 2</span>
+                <span class="badge purple mr-1">{{ object.get_category_display }}</span>
               </a>
               <a href="">
                 <span class="badge blue mr-1">New</span>
@@ -124,17 +124,19 @@
             </div>
 
             <p class="lead">
+              {% if object.discount_price %}
               <span class="mr-1">
-                <del>$200</del>
+                <del>${{ object.price }}</del>
               </span>
-              <span>$100</span>
+              <span>${{ object.discount_price }}</span>
+              {% else %}
+              <span>${{ object.price }}</span>
+              {% endif %}
             </p>
 
             <p class="lead font-weight-bold">Description</p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et dolor suscipit libero eos atque quia ipsa
-              sint voluptatibus!
-              Beatae sit assumenda asperiores iure at maxime atque repellendus maiores quia sapiente.</p>
+            <p>Here goes the product description</p>
 
             <form class="d-flex justify-content-left">
               <!-- Default input -->
