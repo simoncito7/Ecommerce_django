@@ -24,7 +24,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">
+      <a class="navbar-brand waves-effect" href="https://www.linkedin.com/in/sim%C3%B3nvalenzuela/" target="_blank">
         <strong class="blue-text">Simon's Ecommerce</strong>
       </a>
 
@@ -45,15 +45,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/" target="_blank">About MDB</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-              target="_blank">Free download</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link waves-effect" href="https://mdbootstrap.com/education/bootstrap/" target="_blank">Free
-              tutorials</a>
+            <a class="nav-link waves-effect" href="https://www.linkedin.com/in/sim%C3%B3nvalenzuela/"
+              target="_blank">About me</a>
           </li>
         </ul>
 
@@ -67,19 +60,19 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://www.facebook.com/mdbootstrap" class="nav-link waves-effect" target="_blank">
+            <a href="#" class="nav-link waves-effect" target="_blank">
               <i class="fab fa-facebook-f"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://twitter.com/MDBootstrap" class="nav-link waves-effect" target="_blank">
+            <a href="#" class="nav-link waves-effect" target="_blank">
               <i class="fab fa-twitter"></i>
             </a>
           </li>
           <li class="nav-item">
-            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+            <a href="https://github.com/simoncito7/Ecommerce_django"
               class="nav-link border border-light rounded waves-effect" target="_blank">
-              <i class="fab fa-github mr-2"></i>MDB GitHub
+              <i class="fab fa-github mr-2"></i>GitHub
             </a>
           </li>
         </ul>
@@ -133,19 +126,20 @@
               <span>${{ object.price }}</span>
               {% endif %}
             </p>
-
+            <h2>{{ object.title }}</h2>
             <p class="lead font-weight-bold">Description</p>
+            <p>{{ object.description }}</p>
 
-            <p>Here goes the product description</p>
-
-            <form class="d-flex justify-content-left">
-              <!-- Default input -->
-              <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-primary btn-md my-0 p" type="submit">Add to cart
-                <i class="fas fa-shopping-cart ml-1"></i>
-              </button>
-
-            </form>
+            <!-- <form class="d-flex justify-content-left"> -->
+            <!-- Default input -->
+            <!-- <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px"> -->
+            <!-- <button class="btn btn-primary btn-md my-0 p" type="submit"> -->
+            <!-- Add to cart<i class="fas fa-shopping-cart ml-1"></i> -->
+            <!-- </button> -->
+            <!-- </form> -->
+            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md my-0 p">
+              Add to cart<i class="fas fa-shopping-cart ml-1"></i>
+            </a>
 
           </div>
           <!--Content-->
